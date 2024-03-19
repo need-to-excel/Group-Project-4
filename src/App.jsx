@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 // import './App.css'
 import MapTool from './Components/Map/Map2'
-import Events from './Components/Events/Events'
+import Events from './Components/Map/mapinput'
 function App() {
   const [latlon, setlatlon] = useState({lat:0, lon:0});
 
@@ -21,13 +21,7 @@ function App() {
 
         setlatlon({lat:lat, lon:lon});
 
-        console.log("Got lat/lon");
-
-        ReactDOM.createRoot(document.getElementById('root')).render(
-          <React.StrictMode>
-            <App />
-          </React.StrictMode>,
-        );        
+        console.log("Got lat/lon"); 
       });
   }
 
