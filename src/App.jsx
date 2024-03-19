@@ -1,15 +1,12 @@
-import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Explore from './Components/Explore/Explore';
-import Events from './Components/Events/Events';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Events from './pages/Events/Events';
+import Explore from './pages/Explore/Explore';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Events />} />
-      </Routes>
-    </Router>
+        <Routes>
+          <Route path="/" element={<Events />} />
+        </Routes>
   );
 }
 
