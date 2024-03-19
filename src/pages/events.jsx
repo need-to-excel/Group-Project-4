@@ -1,4 +1,3 @@
-import './Events.css';
 import FormLabel from '@mui/material/FormLabel';
 import Grid from '@mui/material/Grid';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -54,6 +53,14 @@ export default function Events() {
             required
             />
         </FormGrid>
+        <Button
+            onClick={() => {
+                alert('clicked');
+            }}
+        variant="contained" type="submit"
+        >
+        Create Event
+        </Button>
         </Grid>
     );
 }

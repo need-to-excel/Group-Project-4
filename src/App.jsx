@@ -5,6 +5,7 @@ import Login from './pages/login';
 import Explore from './pages/explore';
 import './App.css';
 import Home from './pages/home';
+import Events from './pages/events';
 
 function App() {
   return (
