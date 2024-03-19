@@ -1,25 +1,34 @@
-// import React from 'react';
+import { useState, useEffect } from 'react'
+// import './App.css'
+import MapTool from './Map2'
+import Events from './mapinput'
+function Map() {
+  const [latlon, setlatlon] = useState({lat:0, lon:0});
 
-// import Map from 'ol/Map.js';
-// import View from 'ol/View.js';
-// import TileLayer from 'ol/layer/Tile.js';
-// import OSM from 'ol/source/OSM.js';
 
-// const map = new Map({
-//   view: new View({
-//     center: [0, 0],
-//     zoom: 1,
-//   }),
-//   layers: [
-//     new TileLayer({
-//       source: new OSM(),
-//     }),
-//   ],
-//   target: 'map',
-// });
+  function getLatLon (address) {
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + address + "&units=metric&appid=965f5c48346a9c64b82b0d0fc5597889";
+    fetch(queryURL)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
 
-// export default function MapTool () {
-//     return (
-//         <div id="map" class="map" tabIndex="0"></div>
-//     )
-// }
+        var lat = data.coord.lat;
+        var lon = data.coord.lon;
+
+        setlatlon({lat:lat, lon:lon});
+
+        console.log("Got lat/lon"); 
+      });
+  }
+  return (
+    <>
+      <Events getLatLon={getLatLon}/>
+      <MapTool latlon={latlon}/>
+    </>
+  )
+}
+  
+  export default Map;

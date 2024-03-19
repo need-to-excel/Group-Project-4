@@ -1,36 +1,31 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-// import './App.css'
-import MapTool from './Components/Map/Map2'
-import Events from './Components/Map/mapinput'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Navbar from './Components/Navbar/Navbar';
+import Signup from './pages/signup';
+import Login from './pages/login';
+import Explore from './pages/explore';
+import './App.css';
+import Home from './pages/home';
+import Map from './Components/Map/Map';
+
 function App() {
-  const [latlon, setlatlon] = useState({lat:0, lon:0});
-
-  function getLatLon (address) {
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + address + "&units=metric&appid=965f5c48346a9c64b82b0d0fc5597889";
-    fetch(queryURL)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data);
-
-        var lat = data.coord.lat;
-        var lon = data.coord.lon;
-
-        setlatlon({lat:lat, lon:lon});
-
-        console.log("Got lat/lon"); 
-      });
-  }
-
   return (
-    <>
-      <Events getLatLon={getLatLon}/>
-      <MapTool latlon={latlon}/>
-    </>
-  )
+
+    <div>
+      <Navbar />
+      <div className="content">
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/Map" element={<Map />} />
+        </Routes>
+
+      </div>
+    </div>
+  );
 }
 
-export default App
+
+export default App;
