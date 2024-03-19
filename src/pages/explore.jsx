@@ -14,6 +14,22 @@ function Explore(props) {
         <Card sx={{ display: 'flex' }}>
           <CardContent sx={{ flex: 1 }}>
             <Typography component="h2" variant="h5">
+              Exercise Group
+            </Typography>
+            <Typography variant="subtitle1" color="text.secondary">
+              London
+            </Typography>
+            <Typography variant="subtitle1" paragraph>
+              Come and meet your local neighbours.
+            </Typography>
+          </CardContent>
+        </Card>
+      </CardActionArea>
+
+      <CardActionArea component="b" href="#">
+        <Card sx={{ display: 'flex' }}>
+          <CardContent sx={{ flex: 1 }}>
+            <Typography component="h2" variant="h5">
               {card.title}
             </Typography>
             <Typography variant="subtitle1" color="text.secondary">
@@ -29,12 +45,12 @@ function Explore(props) {
   );
 }
 
-ExploreCards.propTypes = {
-  card: PropTypes.shape({
-    city: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-  }).isRequired,
-};
+//ExploreCards.propTypes = {
+//  card: PropTypes.shape({
+//    city: PropTypes.string.isRequired,
+//    description: PropTypes.string.isRequired,
+//    title: PropTypes.string.isRequired,
+//  }).isRequired,
+//};
 
 export default Explore;
