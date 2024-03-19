@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Explore from './pages/Explore/Explore';
-import Events from './pages/Events/Events';
+import Explore from './Components/Explore/Explore';
+import Events from './Components/Events/Events';
 
 function App() {
   return (
