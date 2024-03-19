@@ -17,9 +17,11 @@ export default function Events() {
             Event Name
             </FormLabel>
             <OutlinedInput
-            id="event_name"
-            name="event_name"
-            type="event_name"
+            id="title"
+            name="title"
+            type="text"
+            value={this.state.title}
+            onChange={this.handleChange}
             placeholder="Event Name"
             required
             />
@@ -31,7 +33,9 @@ export default function Events() {
             <OutlinedInput
             id="description"
             name="description"
-            type="description"
+            type="text"
+            value={this.state.description}
+            onChange={this.handleChange}
             placeholder="Description"
             required
             />
@@ -43,7 +47,9 @@ export default function Events() {
             <OutlinedInput
             id="city"
             name="city"
-            type="city"
+            type="text"
+            value={this.state.city}
+            onChange={this.handleChange}
             placeholder="City Name"
             required
             />
