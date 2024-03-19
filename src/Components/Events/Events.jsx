@@ -1,22 +1,53 @@
-import { Input, Stack, Button, ButtonGroup } from '@chakra-ui/react'
+import './Events.css';
+import FormLabel from '@mui/material/FormLabel';
+import Grid from '@mui/material/Grid';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import { styled } from '@mui/system';
 
-function Events(){
+const FormGrid = styled(Grid)(() => ({
+    display: 'flex',
+    flexDirection: 'column',
+}));
+
+export default function Events() {
     return (
-        <div>
-            <Stack spacing={3}>
-            <Input variant='outline' placeholder='Event Name' />
-            <Input variant='outline' placeholder='Description' />
-            <Input variant='outline' placeholder="Select Date and Time" size="md" type="datetime-local" />
-                <Stack>
-                <Input variant='outline' placeholder='Street Address' />
-                <Input variant='outline' placeholder='City' />
-                <Input variant='outline' placeholder='County' />
-                <Input variant='outline' placeholder='Postcode' />
-                </Stack>
-            </Stack>
-            <Button colorScheme='purple'>Create Event</Button>
-        </div>
-    )
+    <Grid container spacing={3}>
+        <FormGrid item xs={12}>
+            <FormLabel>
+            Event Name
+            </FormLabel>
+            <OutlinedInput
+            id="event_name"
+            name="event_name"
+            type="event_name"
+            placeholder="Event Name"
+            required
+            />
+        </FormGrid>
+        <FormGrid item xs={12}>
+            <FormLabel>
+            Description
+            </FormLabel>
+            <OutlinedInput
+            id="description"
+            name="description"
+            type="description"
+            placeholder="Description"
+            required
+            />
+        </FormGrid>
+        <FormGrid item xs={12}>
+            <FormLabel>
+            City
+            </FormLabel>
+            <OutlinedInput
+            id="city"
+            name="city"
+            type="city"
+            placeholder="City Name"
+            required
+            />
+        </FormGrid>
+        </Grid>
+    );
 }
-
-export default Events()
