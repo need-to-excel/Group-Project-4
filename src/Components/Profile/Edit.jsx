@@ -1,5 +1,6 @@
 import { Form, useLoaderData, redirect, useNavigate, } from "react-router-dom";
 import { updateProfile } from "./profiles_fn";
+import './Profile.css'
 
 export async function action({ request, params }) {
   const formData = await request.formData();
@@ -13,7 +14,7 @@ export default function EditProfile() {
   const navigate = useNavigate();
 
   return (
-    <Form method="post" id="profile-form">
+    <Form method="post" className ="profile-form">
       <p>
         <span>Name</span>
         <input
@@ -51,7 +52,7 @@ export default function EditProfile() {
         />
       </label>
       <label>
-        <span>Notes</span>
+        <span>Notes</span>        
         <textarea
           name="notes"
           defaultValue={profile.notes}

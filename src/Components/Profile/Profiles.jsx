@@ -1,5 +1,6 @@
 import {Link, useLoaderData, Form, redirect,} from "react-router-dom";
 import { getProfiles, createProfile } from "./profiles_fn";
+import './Profile.css'
 
 export async function action() {
   const profile = await createProfile();
@@ -16,11 +17,11 @@ export default function Profiles() {
 
   return (
     <>
-      <div id="profiles">
+      <div className="profiles">
         <h1>Profiles</h1>
         <div>          
           <Form method="post">
-            <button type="submit">New</button>
+            <button type="submit">Add New</button>
           </Form>
         </div>
         <nav>
@@ -46,8 +47,7 @@ export default function Profiles() {
             </p>
           )}
         </nav>
-      </div>
-      <div id="detail"></div>
+      </div>      
     </>
   );
 }

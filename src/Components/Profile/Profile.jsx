@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, useLoaderData } from "react-router-dom";
 import { getProfile } from "./profiles_fn";
+import './Profile.css'
 
 export async function loader({ params }) {
   const profile = await getProfile(params.profileId);
@@ -11,7 +12,7 @@ export default function Profile() {
 	const { profile } = useLoaderData(); 
 
   return (
-    <div id="profile">
+    <div className="profile">
       <div>
         <img key={profile.avatar} src={profile.avatar || null} />
       </div>
