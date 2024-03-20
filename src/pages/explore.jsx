@@ -6,14 +6,14 @@ import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 
 function Explore(props) {
-  let userInfo = "";
+  let eventInfo = "";
   function toggleGetData() {
     setData(true);
-    userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    eventInfo = JSON.parse(localStorage.getItem("eventInfo"));
   
-    setName(userInfo.Name);
-    setEmail(userInfo.Email);
-    setNumber(userInfo.Number);
+    setTitle(eventInfo.Title);
+    setDescription(eventInfo.Description);
+    setCity(eventInfo.City);
   }
 
   return (
@@ -38,13 +38,13 @@ function Explore(props) {
         <Card sx={{ display: 'flex' }}>
           <CardContent sx={{ flex: 1 }}>
             <Typography component="h2" variant="h5">
-              {card.title}
+              {title}
             </Typography>
             <Typography variant="subtitle1" color="text.secondary">
-              {card.city}
+              {city}
             </Typography>
             <Typography variant="subtitle1" paragraph>
-              {card.description}
+              {description}
             </Typography>
           </CardContent>
         </Card>

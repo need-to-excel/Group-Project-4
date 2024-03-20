@@ -1,4 +1,5 @@
-import { useEffect, useState, editData } from "react";
+import './../assets/events.css';
+import { useState, editData } from "react";
 import FormLabel from '@mui/material/FormLabel';
 import Grid from '@mui/material/Grid';
 import OutlinedInput from '@mui/material/OutlinedInput';
