@@ -5,8 +5,13 @@ import Explore from './pages/explore';
 import Profile from './pages/profile';
 import Events from './pages/events.jsx';
 import Home from './pages/home';
+<<<<<<< HEAD
 import Login from './pages/login';
 import Signup from './pages/signup';
+=======
+import Map from './Components/Map/Map';
+import Events from './pages/events';
+>>>>>>> main
 
 function App() {
     // State variable to track login status
@@ -32,5 +37,6 @@ function App() {
         </>
     );
 }
+
 
 export default App;
