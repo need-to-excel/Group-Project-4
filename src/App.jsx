@@ -6,6 +6,7 @@ import Explore from './pages/explore';
 import './App.css';
 import Home from './pages/home';
 import Map from './Components/Map/Map';
+import Events from './pages/events';
 
 function App() {
   return (
