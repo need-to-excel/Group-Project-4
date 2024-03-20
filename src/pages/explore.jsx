@@ -6,7 +6,15 @@ import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 
 function Explore(props) {
-  const { card } = props;
+  let userInfo = "";
+  function toggleGetData() {
+    setData(true);
+    userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  
+    setName(userInfo.Name);
+    setEmail(userInfo.Email);
+    setNumber(userInfo.Number);
+  }
 
   return (
     <Grid item xs={12} md={6}>
@@ -44,13 +52,5 @@ function Explore(props) {
     </Grid>
   );
 }
-
-//ExploreCards.propTypes = {
-//  card: PropTypes.shape({
-//    city: PropTypes.string.isRequired,
-//    description: PropTypes.string.isRequired,
-//    title: PropTypes.string.isRequired,
-//  }).isRequired,
-//};
 
 export default Explore;

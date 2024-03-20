@@ -1,7 +1,9 @@
+import { useEffect, useState, editData } from "react";
 import FormLabel from '@mui/material/FormLabel';
 import Grid from '@mui/material/Grid';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { styled } from '@mui/system';
+import Button from '@mui/material/Button';
 
 const FormGrid = styled(Grid)(() => ({
     display: 'flex',
@@ -9,6 +11,10 @@ const FormGrid = styled(Grid)(() => ({
 }));
 
 export default function Events() {
+    const [title, setTitle] = useState ("");
+    const [description, setDescription] = useState ("");
+    const [city, setCity] = useState ("");
+
     return (
     <Grid container spacing={3}>
         <FormGrid item xs={12}>
@@ -19,10 +25,9 @@ export default function Events() {
             id="title"
             name="title"
             type="text"
-            value={this.state.title}
-            onChange={this.handleChange}
+            value={editData ? title : ''}
             placeholder="Event Name"
-            required
+            onChange={(e) => setTitle(e.target.value)}
             />
         </FormGrid>
         <FormGrid item xs={12}>
@@ -33,8 +38,8 @@ export default function Events() {
             id="description"
             name="description"
             type="text"
-            value={this.state.description}
-            onChange={this.handleChange}
+            value={editData ? description : ''}
+            onChange={(e) => setDescription(e.target.value)}
             placeholder="Description"
             required
             />
@@ -47,20 +52,30 @@ export default function Events() {
             id="city"
             name="city"
             type="text"
-            value={this.state.city}
-            onChange={this.handleChange}
+            value={editData ? city :''}
+            onChange={(e) => setCity(e.target.value)}
             placeholder="City Name"
             required
             />
         </FormGrid>
         <Button
-            onClick={() => {
-                alert('clicked');
-            }}
-        variant="contained" type="submit"
+        onClick={handleSubmission}
+        variant="contained" 
+        type="submit"
         >
         Create Event
         </Button>
         </Grid>
     );
-}
+
+    function handleSubmission() {
+        let eventData = {
+            Title: title,
+            Description: description,
+            City: city,
+        };
+        localStorage.setItem("eventInfo", JSON.stringify(eventData));
+        alert("Data recorded!");
+        window.location.reload();
+    }
+};
