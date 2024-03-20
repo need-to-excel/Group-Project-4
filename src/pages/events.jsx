@@ -1,4 +1,4 @@
-import './../assets/events.css';
+import './../assets/css/events.css';
 import { useState, useEffect } from "react";
 import FormLabel from '@mui/material/FormLabel';
 import Grid from '@mui/material/Grid';
