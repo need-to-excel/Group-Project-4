@@ -1,10 +1,11 @@
 import './../assets/events.css';
-import { useState, editData } from "react";
+import { useState, useEffect } from "react";
 import FormLabel from '@mui/material/FormLabel';
 import Grid from '@mui/material/Grid';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { styled } from '@mui/system';
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 const FormGrid = styled(Grid)(() => ({
     display: 'flex',
@@ -16,6 +17,16 @@ export default function Events() {
     const [description, setDescription] = useState ("");
     const [city, setCity] = useState ("");
 
+    useEffect(() => {
+        localStorage.setItem('titleKey', JSON.stringify(title));
+    }, [title]);
+    useEffect(() => {
+        localStorage.setItem('descriptionKey', JSON.stringify(description));
+    }, [description]);
+    useEffect(() => {
+        localStorage.setItem('cityKey', JSON.stringify(city));
+    }, [city]);
+
     return (
     <Grid container spacing={3}>
         <FormGrid item xs={12}>
@@ -25,8 +36,8 @@ export default function Events() {
             <OutlinedInput
             id="title"
             name="title"
-            type="text"
-            value={editData ? title : ''}
+            type="input"
+            value={title}
             placeholder="Event Name"
             onChange={(e) => setTitle(e.target.value)}
             />
@@ -39,7 +50,7 @@ export default function Events() {
             id="description"
             name="description"
             type="text"
-            value={editData ? description : ''}
+            value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Description"
             required
@@ -53,7 +64,7 @@ export default function Events() {
             id="city"
             name="city"
             type="text"
-            value={editData ? city :''}
+            value={city}
             onChange={(e) => setCity(e.target.value)}
             placeholder="City Name"
             required
@@ -76,7 +87,5 @@ export default function Events() {
             City: city,
         };
         localStorage.setItem("eventInfo", JSON.stringify(eventData));
-        alert("Data recorded!");
-        window.location.reload();
     }
 };

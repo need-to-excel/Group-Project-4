@@ -1,20 +1,22 @@
-import PropTypes from 'prop-types';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
+import Map from './../Components/Map/Map';
 
-function Explore(props) {
-  let eventInfo = "";
+function Explore() {
   function toggleGetData() {
-    setData(true);
-    eventInfo = JSON.parse(localStorage.getItem("eventInfo"));
-  
-    setTitle(eventInfo.Title);
-    setDescription(eventInfo.Description);
-    setCity(eventInfo.City);
-  }
+    const title = JSON.parse(localStorage.getItem("titleKey"));
+    const city = JSON.parse(localStorage.getItem("cityKey"));
+    const description = JSON.parse(localStorage.getItem("descriptionKey"));
+    }
+
+    const title = JSON.parse(localStorage.getItem("titleKey"));
+    const city = JSON.parse(localStorage.getItem("cityKey"));
+    const description = JSON.parse(localStorage.getItem("descriptionKey"));
+
+  toggleGetData()
 
   return (
     <Grid item xs={12} md={6}>
@@ -49,6 +51,7 @@ function Explore(props) {
           </CardContent>
         </Card>
       </CardActionArea>
+    <Map />
     </Grid>
   );
 }
