@@ -1,9 +1,28 @@
-.cards {
-    border: solid 1px green;
-    border-radius: 50px;
+.card {
     margin-top: 25px;
+    background-color: #DEDEDE !important;
+    border-radius: 50px !important;
+    padding: 0% !important;
+}
+
+.title,
+.description {
+    text-align: left !important;
+    padding-left: 25px;
+}
+
+.city {
+    text-align: right !important;
+    padding-right: 50px;
 }
 
 #events-section {
     margin-bottom: 75px;
+}
+
+#map {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100% !important;
+    margin-top: 50px;
 }
