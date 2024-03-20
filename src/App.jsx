@@ -1,31 +1,41 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
-import Signup from './pages/signup';
-import Login from './pages/login';
 import Explore from './pages/explore';
-import './App.css';
+import Profile from './pages/profile';
+import Events from './pages/events.jsx';
 import Home from './pages/home';
+<<<<<<< HEAD
+import Login from './pages/login';
+import Signup from './pages/signup';
+=======
 import Map from './Components/Map/Map';
 import Events from './pages/events';
+>>>>>>> main
 
 function App() {
-  return (
+    // State variable to track login status
+    const [loggedIn, setLoggedIn] = useState(false);
 
-    <div>
-      <Navbar />
-      <div className="content">
+    // Function to toggle login status
+    const toggleLogin = () => {
+        setLoggedIn(!loggedIn);
+    };
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/explore" element={<Explore />} />
-          <Route path="/Map" element={<Map />} />
-        </Routes>
-
-      </div>
-    </div>
-  );
+    return (
+        <>
+            {/* Pass the loggedIn state variable to the Navbar component */}
+            <Navbar loggedIn={loggedIn} />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/explore" element={<Explore />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/events" element={<Events />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+            </Routes>
+        </>
+    );
 }
 
 
