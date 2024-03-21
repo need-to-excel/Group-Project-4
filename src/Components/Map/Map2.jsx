@@ -27,7 +27,7 @@ const MapTool = ({latlon}) => {
 
   return (
     <div>
-      <GoogleMap
+      <GoogleMap id="map"
         mapContainerStyle={mapContainerStyle}
         zoom={10}
         center={center}

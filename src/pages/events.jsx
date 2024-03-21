@@ -13,9 +13,13 @@ const FormGrid = styled(Grid)(() => ({
 }));
 
 export default function Events() {
-    const [title, setTitle] = useState ("");
-    const [description, setDescription] = useState ("");
-    const [city, setCity] = useState ("");
+    const storeTitle = JSON.parse(localStorage.getItem('title'));
+    const storeDescription = JSON.parse(localStorage.getItem('description'));
+    const storeCity = JSON.parse(localStorage.getItem('city'));
+
+    const [title, setTitle] = useState (storeTitle);
+    const [description, setDescription] = useState (storeDescription);
+    const [city, setCity] = useState (storeCity);
 
     useEffect(() => {
         localStorage.setItem('titleKey', JSON.stringify(title));
@@ -28,13 +32,13 @@ export default function Events() {
     }, [city]);
 
     return (
-    <Grid container spacing={3}>
-        <FormGrid item xs={12}>
+    <Grid id="createForm" container spacing={3}>
+        <FormGrid item xs={12} className="forms">
             <FormLabel>
             Event Name
             </FormLabel>
             <OutlinedInput
-            id="title"
+            className="input"
             name="title"
             type="input"
             value={title}
@@ -42,12 +46,12 @@ export default function Events() {
             onChange={(e) => setTitle(e.target.value)}
             />
         </FormGrid>
-        <FormGrid item xs={12}>
+        <FormGrid item xs={12} className="forms">
             <FormLabel>
             Description
             </FormLabel>
             <OutlinedInput
-            id="description"
+            className="input"
             name="description"
             type="text"
             value={description}
@@ -56,12 +60,12 @@ export default function Events() {
             required
             />
         </FormGrid>
-        <FormGrid item xs={12}>
+        <FormGrid item xs={12} className="forms">
             <FormLabel>
             City
             </FormLabel>
             <OutlinedInput
-            id="city"
+            className="input"
             name="city"
             type="text"
             value={city}
@@ -71,6 +75,7 @@ export default function Events() {
             />
         </FormGrid>
         <Button
+        id="button"
         onClick={handleSubmission}
         variant="contained" 
         type="submit"

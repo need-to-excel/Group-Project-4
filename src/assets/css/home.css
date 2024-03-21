@@ -1,0 +1,22 @@
+.home-title {
+    margin-top: 75px !important;
+    margin-bottom: 25px !important;
+    text-align: center !important;
+}
+
+.bio {
+    margin-bottom: 100px !important;
+    text-align: center;
+    margin-left: 100px !important;
+    margin-right: 100px !important;
+}
+
+.home-button {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    background-color: #4CAF50 !important;
+}
+
+.home-button:hover {
+    background-color: #357a38 !important;
+}

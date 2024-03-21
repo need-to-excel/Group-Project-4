@@ -1,9 +1,36 @@
-.cards {
-    border: solid 1px green;
-    border-radius: 50px;
+.card {
     margin-top: 25px;
+    background-color: #DEDEDE !important;
+    border-radius: 50px !important;
+    padding: 0% !important;
+}
+
+.title,
+.description {
+    text-align: left !important;
+    padding-left: 25px;
+}
+
+.city {
+    text-align: right !important;
+    padding-right: 50px;
 }
 
 #events-section {
-    margin-bottom: 75px;
+    margin-bottom: 100px;
+    margin-top: 75px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+#map {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 75% !important;
+    margin-top: 50px;
+}
+
+.map {
+    margin-left: auto;
+    margin-right: auto;
 }
