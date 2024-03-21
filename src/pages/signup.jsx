@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Typography, TextField, Button, Grid } from '@mui/material';
+// import "./signup.css";
+
 
 const Signup = () => {
   const [username, setUsername] = useState('');
