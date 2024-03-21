@@ -1,0 +1,16 @@
+.navbar {
+    background-color: #fff;
+}
+
+.appbar {
+    box-shadow: none !important;
+}
+
+.navbar-button {
+    color: #357a38 !important;
+}
+
+.main-link {
+    text-decoration: none;
+    color: #357a38;
+}
