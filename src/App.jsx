@@ -17,7 +17,7 @@ function App() {
         setLoggedIn(!loggedIn);
     };
 
-    return (
+    return ( 
         <>
             {/* Pass the loggedIn state variable to the Navbar component */}
             <Navbar loggedIn={loggedIn} />
