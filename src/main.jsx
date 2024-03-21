@@ -5,12 +5,12 @@ import {
   RouterProvider, Outlet,  
 } from "react-router-dom";
 import Navbar from './Components/Navbar/Navbar';
-import Signup from './pages/signup';
-import Login from './pages/login';
 import Explore from './pages/explore';
-import './App.css';
 import Home from './pages/home';
-import Map from './Components/Map/Map';
+import Login from './pages/login';
+import Signup from './pages/signup';
+import Events from './pages/events';
+import './App.css';
 import Profiles, { loader as profilesLoader, action as profilesAction } from './Components/Profile/Profiles';
 import Profile, {loader as profileLoader,} from './Components/Profile/Profile';
 import Edit, {action as editAction,} from './Components/Profile/Edit';
@@ -46,6 +46,10 @@ const router = createBrowserRouter([
         element: <Explore />
       },
       {
+        path: "events", 
+        element: <Events />
+      },
+      {
         path: "profiles", 
         element: <Profiles />,
         loader: profilesLoader,
@@ -65,11 +69,7 @@ const router = createBrowserRouter([
       {
         path: "profiles/:profileId/destroy", 
         action: destroyAction,
-      },      
-      {
-        path: 'Map',
-        element: <Map />
-      }
+      },  
     ]
   }
 ])

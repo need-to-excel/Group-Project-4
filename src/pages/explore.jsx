@@ -1,27 +1,70 @@
-import React from 'react';
-import { Typography, Button, Grid } from '@mui/material';
-import { Link } from 'react-router-dom'; 
+import green from './../assets/4caf50.png';
+import './../assets/css/explore.css';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Map from './../Components/Map/Map';
+import CardMedia from '@mui/material/CardMedia';
 
-const Explore = () => {
-  
+function Explore() {
+  function toggleGetData() {
+    const title = JSON.parse(localStorage.getItem("titleKey"));
+    const city = JSON.parse(localStorage.getItem("cityKey"));
+    const description = JSON.parse(localStorage.getItem("descriptionKey"));
+    }
+
+    const title = JSON.parse(localStorage.getItem("titleKey"));
+    const city = JSON.parse(localStorage.getItem("cityKey"));
+    const description = JSON.parse(localStorage.getItem("descriptionKey"));
+
+  toggleGetData()
+
+
   return (
-    <Grid container spacing={2} justifyContent="center">
-      <Grid item xs={12}>
-        <Typography variant="h4">Explore</Typography>
-      </Grid>
-      <Grid item xs={12}>
-        <Typography variant="body1">Explore various events, activities, and more!</Typography>
-      </Grid>
-      <Grid item xs={12}>
+    <Grid color="primary" item xs={12} md={6}>
+      <div id="events-section">
+        <Card className="card" sx={{ display: 'flex' }}>
+        <CardMedia
+            component="img"
+            sx={{ width: 225, height: 200, display: { xs: 'none', sm: 'block' } }}
+            image={green}
+          />
+          <CardContent sx={{ flex: 1 }}>
+            <Typography className="title" component="h2" variant="h5">
+              Exercise Group
+            </Typography>
+            <Typography className="description" variant="subtitle1" paragraph>
+              Come and meet your local neighbours.
+            </Typography>
+            <Typography className="city" variant="subtitle1" color="text.secondary">
+              London
+            </Typography>
+          </CardContent>
+        </Card>
 
-        <Button component={Link} to="/events" variant="contained" color="primary">
-          Explore Now
-        </Button>
-      </Grid>
+        <Card className="card" sx={{ display: 'flex' }}>
+        <CardMedia
+            component="img"
+            sx={{ width: 225, height: 200, display: { xs: 'none', sm: 'block' } }}
+            image={green}
+          />
+          <CardContent sx={{ flex: 1 }}>
+            <Typography className="title" component="h2" variant="h5">
+              {title}
+            </Typography>
+            <Typography className="description" variant="subtitle1" paragraph>
+              {description}
+            </Typography>
+            <Typography className="city" variant="subtitle1" color="text.secondary">
+              {city}
+            </Typography>
+          </CardContent>
+        </Card>
+        </div>
+    <Map class="map" />
     </Grid>
   );
-};
+}
 
 export default Explore;
-
-
