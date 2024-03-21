@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Typography, TextField, Button, Grid } from '@mui/material';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const Login = () => {
   const [usernameOrEmail, setUsernameOrEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate(); // Initialize useNavigate hook
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -14,7 +16,8 @@ const Login = () => {
       if (userData.username === usernameOrEmail || userData.email === usernameOrEmail) {
         if (userData.password === password) {
           console.log('Login successful');
-        
+          // Navigate to profile page after successful login
+          navigate('/profile');
           return;
         }
       }
