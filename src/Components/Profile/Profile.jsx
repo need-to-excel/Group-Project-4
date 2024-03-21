@@ -10,7 +10,7 @@ export async function loader({ params }) {
 
 export default function Profile() {
 	const { profile } = useLoaderData(); 
-  const navigate = useNavigate();
+  const navigate = useNavigate();  
 
   return (
     <div className="profile">
@@ -18,7 +18,7 @@ export default function Profile() {
         <img key={profile.avatar} src={profile.avatar || null} />
       </div>
 
-      <div>
+      <div> 
         <h1>
           {profile.first || profile.last ? (
             <>
@@ -40,8 +40,7 @@ export default function Profile() {
               </a>
             </b>
           )}
-        </h4>
-        
+        </h4>        
 
         <h4>
           Tel: {profile.tel && 

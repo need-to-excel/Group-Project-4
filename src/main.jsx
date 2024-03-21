@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, {useState} from "react";
 import * as ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
@@ -17,9 +17,15 @@ import Edit, {action as editAction,} from './Components/Profile/Edit';
 import { action as destroyAction } from './Components/Profile/Destroy';
 
 function Layout() {
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const toggleLogin = () => {
+    setLoggedIn(!loggedIn);
+  };
+
   return (
       <>
-        <Navbar />
+        <Navbar loggedIn={loggedIn} />
         <Outlet />       
       </>
   );
