@@ -1,8 +1,9 @@
+
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const Navbar = ({ loggedIn }) => {
+const Navbar = ({ loggedIn, onLogout }) => {
     return (
         <AppBar position="static">
             <Toolbar>
@@ -14,7 +15,7 @@ const Navbar = ({ loggedIn }) => {
                         <Button component={Link} to="/explore" color="inherit">Explore</Button>
                         <Button component={Link} to="/profile" color="inherit">Profile</Button>
                         <Button component={Link} to="/events" color="inherit">Events</Button>
-                        <Button component={Link} to="/" color="inherit">Logout</Button>
+                        <Button onClick={onLogout} color="inherit">Logout</Button>
                     </>
                 ) : (
                     <>

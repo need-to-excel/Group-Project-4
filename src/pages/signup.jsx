@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Typography, TextField, Button, Grid } from '@mui/material';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 
-const Signup = () => {
+const Signup = ({ onSignup }) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -15,7 +15,9 @@ const Signup = () => {
     localStorage.setItem('userData', JSON.stringify(userData));
     console.log('Signup form submitted:', userData);
     
-    // Navigate to profile page after signup
+ 
+    onSignup();
+  
     navigate('/profile');
   };
 
@@ -58,7 +60,3 @@ const Signup = () => {
 };
 
 export default Signup;
-
-
-
-
