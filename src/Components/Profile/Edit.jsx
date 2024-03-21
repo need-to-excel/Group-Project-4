@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Typography } from "@mui/material";
 import { Form, useLoaderData, redirect, useNavigate } from "react-router-dom";
 import { updateProfile } from "./profiles_fn";
@@ -11,13 +11,24 @@ export async function action({ request, params }) {
   return redirect(`/profiles/${params.profileId}`);
 }
 
-export default function EditProfile({ username, email }) {
+export default function EditProfile() {
   const { profile } = useLoaderData();
   const navigate = useNavigate();  
 
+  const [userData, setUserData] = useState({});
+
+  useEffect(() => {    
+    const userDataFromLocalStorage = localStorage.getItem("userData");
+    if (userDataFromLocalStorage) {
+      const parsedUserData = JSON.parse(userDataFromLocalStorage);
+      setUserData(parsedUserData);
+    }
+  }, []);
+
   return (
-    <>      
-      <Typography variant="h4">Welcome, to Small Evantz!</Typography>
+    <> 
+      
+      <Typography variant="h4">Welcome, {userData.username}!</Typography>
       <Typography variant="body1">Please fill in your profile.</Typography>
       <Form method="post" className="profile-form">
         <p>
@@ -38,12 +49,21 @@ export default function EditProfile({ username, email }) {
           />
         </p>
         <label>
+          <span>Nickname</span>
+          <input
+            placeholder="Nickname"
+            type="text"
+            name="nickname"
+            defaultValue={userData.username}
+          />
+        </label>
+        <label>
           <span>Email</span>
           <input
             placeholder="example@mail.com"
             type="email"
             name="email"
-            defaultValue={profile.email}
+            defaultValue={userData.email}
           />
         </label>
         <label>

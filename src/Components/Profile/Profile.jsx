@@ -30,6 +30,10 @@ export default function Profile() {
         </h1>  
 
         <h4>
+          Nickname: {profile.nickname && <i>{profile.nickname}</i>} 
+        </h4>
+
+        <h4>
           My Linkedin: {profile.linkedin && (
             <b>
               <a
