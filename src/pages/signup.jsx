@@ -1,17 +1,28 @@
 import React, { useState } from 'react';
 import { Typography, TextField, Button, Grid } from '@mui/material';
 
+import { useNavigate, } from "react-router-dom";
+import { createProfile } from "../Components/Profile/profiles_fn";
+
 const Signup = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
    
     const userData = { username, email, password };
     localStorage.setItem('userData', JSON.stringify(userData));
     console.log('Signup form submitted:', userData);
+
+    try {
+      const profile = await createProfile(); 
+      navigate(`/profiles/${profile.id}/edit`); 
+    } catch (error) {
+      console.error('Error creating profile:', error);//      
+    }
   };
 
   return (
