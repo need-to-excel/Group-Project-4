@@ -33,6 +33,51 @@ export default function EditProfile() {
         />
       </p>
       <label>
+        <span>Email</span>
+        <input 
+          placeholder="example@mail.com"
+          type="email"
+          name="email"
+          defaultValue={profile.email}
+        />
+      </label>
+      <label>
+        <span>Tel</span>
+        <input 
+          placeholder="+442071234567"
+          type="tel"
+          name="tel"
+          defaultValue={profile.tel}
+        />
+      </label>
+      <label>
+        <span>Age</span>
+        <input 
+          placeholder="35"
+          type="text"
+          name="age"
+          defaultValue={profile.age}
+        />
+      </label>
+      <label>
+        <span>City</span>
+        <input 
+          placeholder="London"
+          type="text"
+          name="city"
+          defaultValue={profile.ciry}
+        />
+      </label>
+      <label>
+        <span>Country</span>
+        <input 
+          placeholder="England"
+          type="text"
+          name="country"
+          defaultValue={profile.country}
+        />
+      </label>
+      <label>
         <span>Linkedin</span>
         <input
           type="text"

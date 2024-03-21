@@ -22,7 +22,7 @@
   }
 
   button {
-    color: #3992ff;
+    color: #357a38;
     font-weight: 500;
   }
   
@@ -40,10 +40,11 @@
   .profiles h1 {
     font-size: 3rem;
     font-weight: 900;
-    color: #2f8afa;
+    color: #357a38;
     text-align: center;
     padding: 1rem 2rem;      
     line-height: 1;
+    text-shadow: 3px 5px 5px rgba(53,122,56,0.6);
   }    
   
   .profiles > div {
@@ -126,21 +127,25 @@
     font-weight: 700;
     margin: 0;
     line-height: 1.2;
+    text-shadow: 3px 5px 5px rgba(53,122,56,0.6);
   }  
+
+  .profile h4 {
+    text-align: left;
+  }
    
   .profile h1:focus {
     outline: none;
     color: hsl(224, 98%, 58%);
   }
-  
-  .profile a[href*="linkedin"] {
-    font-size: 1.5rem;
-    color: #3992ff;
+  .profile a {
+    color: #357a38;
+    font-size: 1.2rem;    
     text-decoration: none;
   }
-  .profile a[href*="linkedin"]:hover {
-    text-decoration: underline;
-  }
+  .profile a:hover {
+    text-shadow: 3px 5px 5px rgba(53,122,56,0.6);
+  } 
   
   .profile img {
     width: 18rem;
@@ -226,4 +231,9 @@
   
   .profile-form p:last-child button[type="button"] {
     color: inherit;
+  }
+
+  .profile .btn-delete:hover {
+    color: dark;
+    background-color: rgb(250, 177, 177);
   }
